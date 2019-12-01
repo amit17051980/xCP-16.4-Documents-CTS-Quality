@@ -22,11 +22,12 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 1. Download and apply Documentum Content Transformation Service 16.4 patch14 or latest.
 
 2. Checkout pdf_processing_xcp.xml in the /Media Server/System Profile/ via Documentum Administrator
-• Make the following changes under **storyboard_pdfstoryboard** section.
-• Update doc_token_width value to 1280
-• Update doc_token_height value to 1280
-• Update doc_token_dpi value to 196
-• Change doc_token_img_quality value from **regular** to **hires**
+
+a. Make the following changes under **storyboard_pdfstoryboard** section.
+b. Update doc_token_width value to 1280
+c. Update doc_token_height value to 1280
+d. Update doc_token_dpi value to 196
+e. Change doc_token_img_quality value from **regular** to **hires**
 ```
 <InnerProfile path="/System/Media Server/System Profiles/storyboard_pdfstoryboard" waitOnCompletion="true" useTargetFormat="true">
 <InnerTokenMapping LocalProfileToken="jpeg_lres" InnerProfileToken="doc_token_targetFormat" Literal="true"/>
@@ -43,7 +44,7 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 <InnerTokenMapping LocalProfileToken="10" InnerProfileToken="doc_token_chunksize" Literal="true"/>
 </InnerProfile>
 ```
-• Checkin the xml back to the same folder path
+f. Checkin the xml back to the same folder path
 
 3. Checkout storyboard_pdfstoryboard (system profiles), you need to swap the sequences of the commands. Change to load IMAGE3 first and then followed by PDFStoryboard (by default PDFStoryboard plugin load first).
 ```
@@ -54,7 +55,7 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 /System/Media Server/Command Line Files/storyboard_pdfstoryboard.xml
 </CommandFilePath>
 ```
-• Checkin the xml profile
+Checkin the xml profile
 
 Out of the box plugin and configuration satisfy the basic need where the preview screen is small like D2 or Webtop however xCP viewer provides larger preview screen hence you require to adjust the setting to make the preview resolution looks sharp and clear.
 
