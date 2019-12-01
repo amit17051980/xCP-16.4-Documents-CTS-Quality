@@ -1,4 +1,4 @@
-# xCP 16.4 Documents (msw12) Rendition (JPEG Low Resolution) Quality!
+# xCP 16.4 Document Renditions (JPEG Low Resolution) Quality!
 
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
@@ -72,3 +72,5 @@ If you do not have access to CTS Server, don't be panic! Give below steps a go b
 ## Supported Source Formats
 
 ppt8, ppt8_slide, ppt8slideshow, ppt8_template, ppt12, ppt12_slide, ppt12slideshow, ppt12template, ppt14, ppt14_slide, ppt14slideshow, ppt14template, ppt8, ppt8_slide, ppt8slideshow, ppt8_template, ppt12, ppt12_slide, ppt12slideshow, ppt12template, ppt14, ppt14_slide, ppt14slideshow, ppt14template, msw8, msw8template, msw12, msw12template, msw14, msw14template, msw8, msw8template, msw12, msw12template, msw14, msw14template, ppt15, ppt15_slide, ppt15template, ppt15slideshow, msw15, msw15template, ppt15, ppt15_slide, ppt15template, ppt15slideshow, msw15, msw15template
+
+**Note:** It is not possible to generate PNG Rendition (upto 16.7). It might be available as a configuration in future versions. 
