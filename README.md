@@ -6,19 +6,19 @@ I'm assuming that you have got a healthy CTS (Content Transformation Services) r
 
 I also assume that your xCP Import Functionality is already working and producing poor JPEG renditions, which when user view in the xCP Viewer, feel bad about xCP2!
 
-## Update Transformation Profile (Tweaked version of https://knowledge.opentext.com/knowledge/cs.dll/kcs/kbarticle/view/KB13494401) 
+This is a tweaked version of the below OpenText Knowledge Base Article:
+https://knowledge.opentext.com/knowledge/cs.dll/kcs/kbarticle/view/KB13494401 
 
-### Applies to
+## Applies to
 Documentum Content Transformation Services - Documents 16.4
 Documentum xCP 16.4
 
-### Summary
+## Summary
 In Documentum xCP, when you preview a document on xCP viewer the generated rendition quality is poor hence it looks blurry. The print out quality is cropped and fuzzy.
 This issue occurs in (but may not be limited to):
 Documentum xCP 16.4 and Content Transformation Service 16.4
 
-### Resolution
-
+## Update Transformation Profile 
 1. Download and apply Documentum Content Transformation Service 16.4 patch14 or latest.
 
 2. Checkout pdf_processing_xcp.xml in the /Media Server/System Profile/ via Documentum Administrator
@@ -27,7 +27,7 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 • Update doc_token_height value to 1280
 • Update doc_token_dpi value to 196
 • Change doc_token_img_quality value from **regular** to **hires**
-
+```
 <InnerProfile path="/System/Media Server/System Profiles/storyboard_pdfstoryboard" waitOnCompletion="true" useTargetFormat="true">
 <InnerTokenMapping LocalProfileToken="jpeg_lres" InnerProfileToken="doc_token_targetFormat" Literal="true"/>
 <InnerTokenMapping Literal="true" InnerProfileToken="add_rendition_properties" LocalProfileToken="false"/>
@@ -42,21 +42,21 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 <InnerTokenMapping LocalProfileToken="hires" InnerProfileToken="doc_token_img_quality" Literal="true"/>
 <InnerTokenMapping LocalProfileToken="10" InnerProfileToken="doc_token_chunksize" Literal="true"/>
 </InnerProfile>
+```
 • Checkin the xml back to the same folder path
 
 3. Checkout storyboard_pdfstoryboard (system profiles), you need to swap the sequences of the commands. Change to load IMAGE3 first and then followed by PDFStoryboard (by default PDFStoryboard plugin load first).
+```
 <CommandFilePath mptype="IMAGE3">
 /System/Media Server/Command Line Files/storyboard_pdf_imw.xml
 </CommandFilePath>
 <CommandFilePath mptype="PDFStoryboard">
 /System/Media Server/Command Line Files/storyboard_pdfstoryboard.xml
 </CommandFilePath>
+```
 • Checkin the xml profile
 
 Out of the box plugin and configuration satisfy the basic need where the preview screen is small like D2 or Webtop however xCP viewer provides larger preview screen hence you require to adjust the setting to make the preview resolution looks sharp and clear.
-
-Tracking Number
-ECDCTS-5987
 
 ## Don't Forget to Restart/Refresh CTS Services ✅ 
 If you do not have access to CTS Server, don't be panic! Give below steps a go before bringing your Ring Master to the loop!
@@ -68,6 +68,6 @@ If you do not have access to CTS Server, don't be panic! Give below steps a go b
 5. [Stop](http://localhost:8080/da/webcomponent/admin/cts/viewdetails.jsp# "Stop") |[Start](http://localhost:8080/da/webcomponent/admin/cts/viewdetails.jsp# "Start") |[Refresh](http://localhost:8080/da/webcomponent/admin/cts/viewdetails.jsp# "Refresh  ")
 6. Give another .docx or other supported source formats a go and share your view.
 
-## Source Format
+## Supported Source Formats
 
 ppt8, ppt8_slide, ppt8slideshow, ppt8_template, ppt12, ppt12_slide, ppt12slideshow, ppt12template, ppt14, ppt14_slide, ppt14slideshow, ppt14template, ppt8, ppt8_slide, ppt8slideshow, ppt8_template, ppt12, ppt12_slide, ppt12slideshow, ppt12template, ppt14, ppt14_slide, ppt14slideshow, ppt14template, msw8, msw8template, msw12, msw12template, msw14, msw14template, msw8, msw8template, msw12, msw12template, msw14, msw14template, ppt15, ppt15_slide, ppt15template, ppt15slideshow, msw15, msw15template, ppt15, ppt15_slide, ppt15template, ppt15slideshow, msw15, msw15template
