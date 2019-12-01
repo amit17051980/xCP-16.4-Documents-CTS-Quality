@@ -21,13 +21,12 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 ## Update Transformation Profile 
 1. Download and apply Documentum Content Transformation Service 16.4 patch14 or latest.
 
-2. Checkout pdf_processing_xcp.xml in the /Media Server/System Profile/ via Documentum Administrator
-
-2.a. Make the following changes under **storyboard_pdfstoryboard** section.
+2. Checkout pdf_processing_xcp.xml in the /Media Server/System Profile/ via Documentum Administrator.
+`2.a. Make the following changes under **storyboard_pdfstoryboard** section.
 2.b. Update doc_token_width value to 1280
 2.c. Update doc_token_height value to 1280
 2.d. Update doc_token_dpi value to 196
-2.e. Change doc_token_img_quality value from **regular** to **hires**
+2.e. Change doc_token_img_quality value from **regular** to **hires**`
 ```
 <InnerProfile path="/System/Media Server/System Profiles/storyboard_pdfstoryboard" waitOnCompletion="true" useTargetFormat="true">
 <InnerTokenMapping LocalProfileToken="jpeg_lres" InnerProfileToken="doc_token_targetFormat" Literal="true"/>
