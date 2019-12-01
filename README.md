@@ -6,27 +6,57 @@ I'm assuming that you have got a healthy CTS (Content Transformation Services) r
 
 I also assume that your xCP Import Functionality is already working and producing poor JPEG renditions, which when user view in the xCP Viewer, feel bad about xCP2!
 
-## Update Transformation Profile 
+## Update Transformation Profile (Tweaked version of https://knowledge.opentext.com/knowledge/cs.dll/kcs/kbarticle/view/KB13494401) 
 
-Right, lets start using DA and navigate to the file below. Please do not complaint if file is not visible as you forget to filter all the versions on the right hand top corner. 😊 
+### Applies to
+Documentum Content Transformation Services - Documents 16.4
+Documentum xCP 16.4
 
-**File**: ``/System/Media Server/System Profiles/transformXcpDocumentDirect``
+### Summary
+In Documentum xCP, when you preview a document on xCP viewer the generated rendition quality is poor hence it looks blurry. The print out quality is cropped and fuzzy.
+This issue occurs in (but may not be limited to):
+Documentum xCP 16.4 and Content Transformation Service 16.4
 
-Replace the Content as suggested below (Checkout-Checking-Minor-Version):
+### Resolution
 
-**From**:
-```
-<CommandFilePath mptype="DOC6">
-		/System/Media Server/Command Line Files/transformXcpDocument.xml
-</CommandFilePath>	
-```
-**To**: 
-```
+1. Download and apply Documentum Content Transformation Service 16.4 patch14 or latest.
+
+2. Checkout pdf_processing_xcp.xml in the /Media Server/System Profile/ via Documentum Administrator
+• Make the following changes under **storyboard_pdfstoryboard** section.
+• Update doc_token_width value to 1280
+• Update doc_token_height value to 1280
+• Update doc_token_dpi value to 196
+• Change doc_token_img_quality value from **regular** to **hires**
+
+<InnerProfile path="/System/Media Server/System Profiles/storyboard_pdfstoryboard" waitOnCompletion="true" useTargetFormat="true">
+<InnerTokenMapping LocalProfileToken="jpeg_lres" InnerProfileToken="doc_token_targetFormat" Literal="true"/>
+<InnerTokenMapping Literal="true" InnerProfileToken="add_rendition_properties" LocalProfileToken="false"/>
+<InnerTokenMapping LocalProfileToken="1500" InnerProfileToken="doc_token_width" Literal="true"/>
+<InnerTokenMapping LocalProfileToken="1500" InnerProfileToken="doc_token_height" Literal="true"/>
+<InnerTokenMapping LocalProfileToken="296" InnerProfileToken="doc_token_dpi" Literal="true"/>
+<InnerTokenMapping LocalProfileToken="-1" InnerProfileToken="doc_token_pageNumber" Literal="true"/>
+<InnerTokenMapping LocalProfileToken="true" InnerProfileToken="enable_activepreview" Literal="true"/>
+<InnerTokenMapping LocalProfileToken="true" InnerProfileToken="zip_output" Literal="true"/>
+<InnerTokenMapping Literal="true" InnerProfileToken="doc_token_colorSpace" LocalProfileToken="RGB"/>
+<InnerTokenMapping Literal="true" InnerProfileToken="doc_token_colorProfile" LocalProfileToken="_use_default"/>
+<InnerTokenMapping LocalProfileToken="hires" InnerProfileToken="doc_token_img_quality" Literal="true"/>
+<InnerTokenMapping LocalProfileToken="10" InnerProfileToken="doc_token_chunksize" Literal="true"/>
+</InnerProfile>
+• Checkin the xml back to the same folder path
+
+3. Checkout storyboard_pdfstoryboard (system profiles), you need to swap the sequences of the commands. Change to load IMAGE3 first and then followed by PDFStoryboard (by default PDFStoryboard plugin load first).
 <CommandFilePath mptype="IMAGE3">
-		/System/Media Server/Command Line Files/transformTo_imw.xml
+/System/Media Server/Command Line Files/storyboard_pdf_imw.xml
 </CommandFilePath>
-```
-Well done! 👍 
+<CommandFilePath mptype="PDFStoryboard">
+/System/Media Server/Command Line Files/storyboard_pdfstoryboard.xml
+</CommandFilePath>
+• Checkin the xml profile
+
+Out of the box plugin and configuration satisfy the basic need where the preview screen is small like D2 or Webtop however xCP viewer provides larger preview screen hence you require to adjust the setting to make the preview resolution looks sharp and clear.
+
+Tracking Number
+ECDCTS-5987
 
 ## Don't Forget to Restart/Refresh CTS Services ✅ 
 If you do not have access to CTS Server, don't be panic! Give below steps a go before bringing your Ring Master to the loop!
