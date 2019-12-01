@@ -23,11 +23,11 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 
 2. Checkout pdf_processing_xcp.xml in the /Media Server/System Profile/ via Documentum Administrator
 
-a. Make the following changes under **storyboard_pdfstoryboard** section.
-b. Update doc_token_width value to 1280
-c. Update doc_token_height value to 1280
-d. Update doc_token_dpi value to 196
-e. Change doc_token_img_quality value from **regular** to **hires**
+2.a. Make the following changes under **storyboard_pdfstoryboard** section.
+2.b. Update doc_token_width value to 1280
+2.c. Update doc_token_height value to 1280
+2.d. Update doc_token_dpi value to 196
+2.e. Change doc_token_img_quality value from **regular** to **hires**
 ```
 <InnerProfile path="/System/Media Server/System Profiles/storyboard_pdfstoryboard" waitOnCompletion="true" useTargetFormat="true">
 <InnerTokenMapping LocalProfileToken="jpeg_lres" InnerProfileToken="doc_token_targetFormat" Literal="true"/>
@@ -44,7 +44,7 @@ e. Change doc_token_img_quality value from **regular** to **hires**
 <InnerTokenMapping LocalProfileToken="10" InnerProfileToken="doc_token_chunksize" Literal="true"/>
 </InnerProfile>
 ```
-f. Checkin the xml back to the same folder path
+2.f. Checkin the xml back to the same folder path
 
 3. Checkout storyboard_pdfstoryboard (system profiles), you need to swap the sequences of the commands. Change to load IMAGE3 first and then followed by PDFStoryboard (by default PDFStoryboard plugin load first).
 ```
