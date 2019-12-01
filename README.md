@@ -4,7 +4,7 @@ Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's rendit
 
 I'm assuming that you have got a healthy CTS (Content Transformation Services) running and is 16.4 (or latest!). Also, you have little more storage to hold little big rendition in place of quality!
 
-I also assume that your xCP Import Functionality is already working and producing poor JPEG renditions, which when user view in the xCP Viewer, feel bad about xCP2!
+I also assume that your xCP Import Functionality is already working and producing poor JPEG renditions, which when user view in the xCP Viewer, feel bad about xCP!
 
 This is a tweaked version of the below OpenText Knowledge Base Article:
 https://knowledge.opentext.com/knowledge/cs.dll/kcs/kbarticle/view/KB13494401 
