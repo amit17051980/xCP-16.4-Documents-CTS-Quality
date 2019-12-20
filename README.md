@@ -1,7 +1,7 @@
 # xCP 16.4 Document Renditions (JPEG Low Resolution) Quality!
 
-✅<B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!
-
+✅
+<B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!
 
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
@@ -62,7 +62,8 @@ Documentum xCP 16.4 and Content Transformation Service 16.4
 
 Out of the box plugin and configuration satisfy the basic need where the preview screen is small like D2 or Webtop however xCP viewer provides larger preview screen hence you require to adjust the setting to make the preview resolution looks sharp and clear.
 
-✅## Don't Forget to Restart/Refresh CTS Services
+✅ 
+## Don't Forget to Restart/Refresh CTS Services
 If you do not have access to CTS Server, don't be panic! Give below steps a go before bringing your Ring Master to the loop!
 
 1. Go to DA Content Transformation Services Node
