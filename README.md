@@ -2,7 +2,7 @@
 
 <font color=red><B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!</font>
 
-``` mermaid
+```mermaid
 A[xCP Designer] -- Story, PDF --> B((XCP_ADV))
 A -- Story, JPEG --> C((XCP))
 B --> D{CTS}
