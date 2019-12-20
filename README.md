@@ -1,8 +1,7 @@
 # xCP 16.4 Document Renditions (JPEG Low Resolution) Quality!
 
-<font color=red><B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!</font>
+<font color='red'><B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!</font>
 
-.. warning:: note the space between the directive and the text
 
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
