@@ -2,17 +2,16 @@
 
 <font color=red><B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!</font>
 
-graph LR
-  A[xCP Designer] -- Story, PDF --> B((XCP_ADV))
-  A -- Story, JPEG --> C((XCP))
-  B --> D{CTS}
-  C --> D
 
-```mermaid
-pie title NETFLIX
-         "Time spent looking for movie" : 90
-         "Time spent watching it" : 10
-```
+
+  <div class="mermaid">
+  graph LR
+      A --- B
+      B-->C[fa:fa-ban forbidden]
+      B-->D(fa:fa-spinner);
+  </div>
+  <script src="mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
 
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
