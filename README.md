@@ -14,7 +14,7 @@ A[Hard edge] -->B(Round edge)
     B --> C{Decision}
     C -->|One| D[Result one]
     C -->|Two| E[Result two]
-​```
+```
 
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
