@@ -3,14 +3,6 @@
 <font color=red><B>Note</B> : If you are willing to use PDF Renditions instead, use Advanced Viewer instead of OOTB xCP Content Viewer. This is working fine if you follow xCP Deployment Guide to enable CTS integration for XCP_ADV Viewer!</font>
 
 
-
-```mermaid
-graph LR
-      A --- B
-      B-->C[fa:fa-ban forbidden]
-      B-->D(fa:fa-spinner);
-```
-
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
 I'm assuming that you have got a healthy CTS (Content Transformation Services) running and is 16.4 (or latest!). Also, you have little more storage to hold little big rendition in place of quality!
