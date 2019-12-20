@@ -4,14 +4,12 @@
 
 
 
-  <div class="mermaid">
-  graph LR
+```mermaid
+graph LR
       A --- B
       B-->C[fa:fa-ban forbidden]
       B-->D(fa:fa-spinner);
-  </div>
-  <script src="mermaid.min.js"></script>
-  <script>mermaid.initialize({startOnLoad:true});</script>
+```
 
 Hi! 👋 If you wish to improve image (JPEG) quality of the MS Document's renditions (StoryBoards) while viewing in xCP Content Viewer, no worries! I'd suggest to follow this simple article. If you have got another option, please do comment!
 
